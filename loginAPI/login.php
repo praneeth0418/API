@@ -9,7 +9,7 @@
 		//I've used postman api before assigning values, to check this API. This is perfectly working.
 		$_POST['button']="ok";
 		$db = mysqli_connect("localhost","root","root","authentication");
-		if(isset($_POST['button']))
+		if(isset($_POST['loginbutton']))
 		{
 			//session_start();
 			$_POST['username'] = "vignesh";

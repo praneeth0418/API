@@ -11,11 +11,10 @@
 		$db = mysqli_connect("localhost","root","root","authentication");
 		$username = "vignesh";
 		$friends = array();
-		//$friends = array($username => $friends);
 		$_POST['friend']="kiran";
-		if(isset($_POST['button']))
+		if(isset($_POST['friendbutton']))
 		{
-			array_push($friends,$_POST['friend'],"rahul");
+			array_push($friends,"Praneeth","vasi",$_POST['friend'],"rahul");
 			
 			
 		}
@@ -29,24 +28,15 @@
 				$friendarr = array();
 				
 				foreach($friends as $friend)
-				{
-					//echo $friend;
-					
-						
+				{		
 						$frd = mysqli_real_escape_string($db,$friend);
 						$friendarr[] = "$frd";
 						foreach($friendarr as $farr)
 						{
 							$sql    = "INSERT INTO friendslist VALUES ('$username','$farr')"; //insering user details to the database.
-							//$sql .= implode(',', $friendarr);
 							mysqli_query($db,$sql);
-							//echo "successfully added";
 						}
 				}
-				
-				//echo $friendarr[0];
-			}
-		
-		
+			}	
 	}
 	else {echo "not working";}
