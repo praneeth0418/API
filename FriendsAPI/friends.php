@@ -36,12 +36,12 @@
 						$frd = mysqli_real_escape_string($db,$friend);
 						$friendarr[] = "$frd";
 						foreach($friendarr as $farr)
-					{
-						$sql    = "IF NOT EXISTS(SELECT username FROM users WHERE username = '$username') INSERT INTO users(friends) VALUES('$farr')"; //insering user details to the database.
-						//$sql .= implode(',', $friendarr);
-						mysqli_query($db,$sql);
-						echo "successfully added";
-					}
+						{
+							$sql    = "INSERT INTO friendslist VALUES ('$username','$farr')"; //insering user details to the database.
+							//$sql .= implode(',', $friendarr);
+							mysqli_query($db,$sql);
+							//echo "successfully added";
+						}
 				}
 				
 				//echo $friendarr[0];
